@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri buah</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-top: 50px;
+    }
+    
+    .btn-random {
+      margin-top: 20px;
+      background-color: #006FFA;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .btn-random:hover {
+      background-color: #fbb307;
+    }
+    
+    h1, h2, h3 {
+      margin-bottom: 10px;
+    }
+
+    .output-container {
+        background-color: #FFFFFF;
+        padding: 20px;
+        border: 2px solid #006FFA;
+        border-radius: 10px;
+        margin-top: 20px;
+        font-family: verdana;
+    }
+
+    .output-text {
+        color: #000000;
+        font-size: 18px;
+    }
+    </style>
+    
+    
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pengembang.html">Profil</a></li>
+      <li><a href="ask.html">Question</a></li>
+      <li><a href="galery.html">Random</a></li>
+    </ul>
+  </nav>
+    <br><br><br><br>
+
+    <div id="random" class="container">
+        <h1 class="page-title">Funfact Buah Random</h1>
+        <button onclick="randomFact()" class="btn-random">Klik Disini</button>
+        <div class="output-container">
+            <h2 id="random-fruit" class="output-text"></h2>
+        </div>
+        <div class="output-container">
+            <p id="random-fact" class="output-text"></p>
+        </div>
+      </div>
+    
+      <script>
+        function openTab(event, tabName) {
+          // Mengambil semua elemen dengan class "tabcontent"
+          var tabcontent = document.getElementsByClassName("tabcontent");
+    
+          // Menghapus class "active" dari semua elemen dengan class "tablinks" dan menyembunyikan semua tabcontent
+          for (var i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+    
+          // Menambahkan class "active" pada tombol yang diklik dan menampilkan konten tab yang sesuai
+          event.currentTarget.className += " active";
+          document.getElementById(tabName).style.display = "block";
+        }
+    
+        function randomFact() {
+          // Array berisi fakta-fakta tentang buah-buah
+          var facts = {
+            pisang: [
+              "Pisang mengandung banyak potassium yang baik untuk kesehatan jantung.",
+              "Pisang mengandung vitamin B6 yang dapat membantu meningkatkan mood dan mengurangi risiko depresi.",
+              "Pisang mengandung serat yang membantu menjaga kesehatan pencernaan.",
+              "Pisang mengandung pektin yang dapat membantu menurunkan kadar kolesterol dalam darah."
+            ],
+            apel: [
+            "Apel mengandung serat yang baik untuk menjaga kesehatan pencernaan.",
+            "Mengonsumsi apel secara teratur dapat membantu menurunkan risiko penyakit jantung.",
+            "Apel mengandung antioksidan yang dapat melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
+            "Apel mengandung vitamin C yang membantu meningkatkan sistem kekebalan tubuh."
+            ],
+            alpukat: [
+            "Alpukat mengandung lemak sehat yang baik untuk kesehatan jantung.",
+            "Alpukat mengandung serat yang membantu menjaga kesehatan pencernaan.",
+            "Alpukat mengandung vitamin K yang penting untuk pembekuan darah.",
+            "Alpukat mengandung antioksidan yang dapat melindungi sel-sel tubuh dari kerusakan."
+            ],
+            durian: [
+            "Durian memiliki aroma yang kuat dan unik.",
+            "Durian mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Durian mengandung vitamin C yang penting untuk sistem kekebalan tubuh.",
+            "Durian mengandung kalium yang membantu menjaga keseimbangan elektrolit dalam tubuh."
+            ],
+            semangka: [
+            "Semangka memiliki kandungan air yang tinggi sehingga dapat membantu menjaga hidrasi tubuh.",
+            "Semangka mengandung likopen, sejenis antioksidan yang baik untuk kesehatan jantung dan kulit.",
+            "Semangka mengandung vitamin A, C, dan B6 yang penting untuk menjaga sistem kekebalan tubuh.",
+            "Semangka rendah kalori dan lemak sehingga cocok dikonsumsi sebagai camilan sehat."
+            ],
+            mangga: [
+            "Mangga mengandung vitamin C yang membantu meningkatkan sistem kekebalan tubuh.",
+            "Mangga mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Mangga mengandung antioksidan yang dapat melindungi sel-sel tubuh dari kerusakan.",
+            "Mangga mengandung vitamin A yang penting untuk kesehatan mata dan kulit."
+            ],
+            jeruk: [
+            "Jeruk mengandung vitamin C yang tinggi, membantu meningkatkan sistem kekebalan tubuh.",
+            "Jeruk mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Jeruk mengandung antioksidan yang melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
+            "Jeruk mengandung vitamin A yang penting untuk kesehatan mata dan kulit."
+            ],
+            anggur: [
+            "Anggur mengandung antioksidan yang baik untuk kesehatan jantung dan melindungi sel-sel tubuh.",
+            "Anggur mengandung serat yang membantu menjaga kesehatan pencernaan.",
+            "Anggur mengandung vitamin C yang membantu meningkatkan sistem kekebalan tubuh.",
+            "Anggur mengandung resveratrol, sejenis senyawa yang memiliki efek antiinflamasi dan melindungi sel-sel tubuh."
+            ],
+            strawberi: [
+            "Strawberi mengandung vitamin C yang membantu meningkatkan sistem kekebalan tubuh.",
+            "Strawberi mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Strawberi mengandung antioksidan yang melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
+            "Strawberi rendah kalori sehingga cocok dikonsumsi sebagai camilan sehat."
+            ],
+            pepaya: [
+            "Pepaya mengandung enzim papain yang dapat membantu pencernaan protein.",
+            "Pepaya mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Pepaya mengandung vitamin C yang penting untuk sistem kekebalan tubuh.",
+            "Pepaya mengandung vitamin A yang baik untuk kesehatan mata dan kulit."
+            ],
+            kiwi: [
+            "Kiwi mengandung vitamin C yang tinggi, membantu meningkatkan sistem kekebalan tubuh.",
+            "Kiwi mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Kiwi mengandung antioksidan yang melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
+            "Kiwi mengandung vitamin K yang penting untuk pembekuan darah."
+            ],
+            nanas: [
+            "Nanas mengandung enzim bromelain yang dapat membantu pencernaan.",
+            "Nanas mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Nanas mengandung vitamin C yang penting untuk sistem kekebalan tubuh.",
+            "Nanas mengandung mangan yang berperan dalam pembentukan jaringan ikat dan tulang."
+            ],
+            pear: [
+            "Pir mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Pir mengandung vitamin C yang membantu meningkatkan sistem kekebalan tubuh.",
+            "Pir mengandung antioksidan yang melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
+            "Pir mengandung kandungan air yang tinggi sehingga dapat membantu menjaga hidrasi tubuh."
+            ],
+            plum: [
+            "Plum mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Plum mengandung vitamin C yang penting untuk sistem kekebalan tubuh.",
+            "Plum mengandung antioksidan yang melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
+            "Plum mengandung vitamin K yang berperan dalam pembekuan darah."
+            ],
+            persik: [
+            "Persik mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Persik mengandung vitamin C yang membantu meningkatkan sistem kekebalan tubuh.",
+            "Persik mengandung antioksidan yang melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
+            "Persik mengandung vitamin A yang baik untuk kesehatan mata dan kulit."
+            ],
+            nangka: [
+            "Nangka mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Nangka mengandung vitamin C yang membantu meningkatkan sistem kekebalan tubuh.",
+            "Nangka mengandung antioksidan yang melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
+            "Nangka mengandung vitamin B6 yang berperan dalam metabolisme energi."
+            ],
+            rambutan: [
+            "Rambutan mengandung vitamin C yang membantu meningkatkan sistem kekebalan tubuh.",
+            "Rambutan mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Rambutan mengandung antioksidan yang melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
+            "Rambutan mengandung zat besi yang penting untuk pembentukan sel darah merah."
+            ],
+            "jambu biji": [
+            "Jambu biji mengandung vitamin C yang membantu meningkatkan sistem kekebalan tubuh.",
+            "Jambu biji mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Jambu biji mengandung antioksidan yang melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
+            "Jambu biji mengandung magnesium yang penting untuk kesehatan tulang dan otot."
+            ],
+            markisa: [
+            "Markisa mengandung vitamin C yang membantu meningkatkan sistem kekebalan tubuh.",
+            "Markisa mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Markisa mengandung antioksidan yang melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
+            "Markisa mengandung vitamin A yang baik untuk kesehatan mata dan kulit."
+            ],
+            srikaya: [
+            "Srikaya mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Srikaya mengandung vitamin C yang membantu meningkatkan sistem kekebalan tubuh.",
+            "Srikaya mengandung antioksidan yang melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
+            "Srikaya mengandung vitamin A yang baik untuk kesehatan mata dan kulit."
+            ],
+            melon: [
+            "Melon mengandung kandungan air yang tinggi sehingga dapat membantu menjaga hidrasi tubuh.",
+            "Melon mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Melon mengandung vitamin C yang penting untuk sistem kekebalan tubuh.",
+            "Melon rendah kalori sehingga cocok dikonsumsi sebagai camilan sehat."
+            ],
+            "buah naga": [
+            "Buah naga mengandung antioksidan yang melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
+            "Buah naga mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Buah naga mengandung vitamin C yang membantu meningkatkan sistem kekebalan tubuh.",
+            "Buah naga mengandung zat besi yang penting untuk pembentukan sel darah merah."
+            ],
+            "buah lontar": [
+            "Buah lontar mengandung vitamin C yang membantu meningkatkan sistem kekebalan tubuh.",
+            "Buah lontar mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Buah lontar mengandung antioksidan yang melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
+            "Buah lontar mengandung zat besi yang penting untuk pembentukan sel darah merah."
+            ],
+            kelapa: [
+            "Kelapa mengandung lemak sehat yang baik untuk kesehatan jantung.",
+            "Kelapa mengandung serat yang membantu menjaga kesehatan pencernaan.",
+            "Kelapa mengandung antioksidan yang melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
+            "Kelapa mengandung asam laurat yang memiliki efek antimikroba."
+            ],
+            tomat: [
+            "Tomat mengandung likopen, sejenis antioksidan yang baik untuk kesehatan jantung dan kulit.",
+            "Tomat mengandung vitamin C yang membantu meningkatkan sistem kekebalan tubuh.",
+            "Tomat mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Tomat mengandung vitamin A yang penting untuk kesehatan mata dan kulit."
+            ],
+            belimbing: [
+            "Belimbing mengandung vitamin C yang membantu meningkatkan sistem kekebalan tubuh.",
+            "Belimbing mengandung serat yang baik untuk kesehatan pencernaan.",
+            "Belimbing mengandung antioksidan yang melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
+            "Belimbing mengandung vitamin A yang baik untuk kesehatan mata dan kulit."
+            ]
+        };
+
+        // Array berisi daftar buah yang tersedia
+        var fruits = [
+            "pisang", "apel", "alpukat", "durian", "semangka", "mangga", "jeruk", "anggur", "strawberi", "pepaya",
+            "kiwi", "nanas", "pear", "plum", "persik", "nangka", "rambutan", "jambu biji", "markisa", "srikaya",
+            "melon", "buah naga", "buah lontar", "kelapa", "tomat", "belimbing"
+        ];
+
+        // Memilih secara acak sebuah buah dari daftar buah
+        var randomFruit = fruits[Math.floor(Math.random() * fruits.length)];
+
+        // Memilih secara acak sebuah funfact tentang buah yang terpilih
+        var randomFunfact = facts[randomFruit][Math.floor(Math.random() * facts[randomFruit].length)];
+
+        // Menampilkan hasil random funfact
+        document.getElementById("random-fruit").innerHTML = randomFruit;
+        document.getElementById("random-fact").innerHTML = randomFunfact;
+        }
+  </script>
+</body>
+
+</html>
